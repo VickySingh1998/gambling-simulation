@@ -5,26 +5,33 @@ public class GamblingSimulator {
         int stake = 100;
         int bet = 1;
         int totalAmount=0;
+        int days=0, winning=0;
 
-        while (stake > 50 && stake < 150) {
-            int bettingAmount = (int) Math.floor(Math.random() * 10) % 2;
+        while (days<20) {
+            days++;
+            while (stake > 50 && stake < 150) {
+                int bettingAmount = (int) Math.floor(Math.random() * 10) % 2;
 
-            if (bet == bettingAmount) {
-                System.out.println("It's a win");
-                totalAmount = stake + bet;
-            } else {
-                System.out.println("So sorry you lose");
-                totalAmount = stake - bet;
+                if (bet == bettingAmount) {
+                    //System.out.println("It's a win");
+                    totalAmount = stake + bet;
+                } else {
+                    //System.out.println("So sorry you lose");
+                    totalAmount = stake - bet;
+                }
+                //System.out.println("New Stake Amount: " + totalAmount);
+                stake = totalAmount;
             }
-            System.out.println("New Stake Amount: " + totalAmount);
-            stake = totalAmount;
+            System.out.println("Day " + days);
+            if (totalAmount==150){
+                winning +=stake;
+            }
+            else{
+                winning -=stake;
+            }
+            System.out.println(winning);
         }
         System.out.println(" ");
-        System.out.println("Your Total Amount Now: " + stake);
-
-        if (stake == 50 || stake == 150) {
-            System.out.println(" ");
-            System.out.println("Player would like to resign for the today");
+        System.out.println("Total ammount ater 20 days = " +winning);
         }
     }
-}
