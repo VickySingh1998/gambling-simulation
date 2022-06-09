@@ -5,7 +5,7 @@ public class GamblingSimulator {
         int stake = 100;
         int bet = 1;
         int totalAmount=0;
-        int days=0, winning=0;
+        int days=0, win=0;
 
         while (days<20) {
             days++;
@@ -24,14 +24,14 @@ public class GamblingSimulator {
             }
             System.out.println("Day " + days);
             if (totalAmount==150){
-                winning +=stake;
+                win +=stake;
             }
             else{
-                winning -=stake;
+                win -=stake;
             }
-            System.out.println(winning);
+            System.out.println(win);
         }
         System.out.println(" ");
-        System.out.println("Total ammount ater 20 days = " +winning);
+        System.out.println("Total ammount ater 20 days = " +win);
         }
     }
